@@ -10,9 +10,11 @@ import SwiftUI
 class PokemonVM: ObservableObject {
     @Published var pokemon = [Pokemon]()
     let baseURL = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
+    let baseAPIURL = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
     
     init() {
         fetchPokemon()
+        fetchAPIPokemon()
     }
     
     func fetchPokemon() {
@@ -51,6 +53,20 @@ class PokemonVM: ObservableObject {
         default:
             return .systemIndigo
         }
+    }
+    
+    func fetchAPIPokemon() {
+        guard let url = URL(string: baseAPIURL) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            guard let pokemonList = try? JSONDecoder().decode(PokemonList.self, from: data) else { return }
+            
+            print(pokemonList.next ?? "End of list")
+            for pokemon in pokemonList.results {
+                print(pokemon.name)
+            }
+        }.resume()
     }
 }
 
