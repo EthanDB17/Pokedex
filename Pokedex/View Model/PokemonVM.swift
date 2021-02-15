@@ -10,7 +10,7 @@ import SwiftUI
 class PokemonVM: ObservableObject {
     @Published var pokemon = [Pokemon]()
     let baseURL = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
-    let baseAPIURL = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+    let baseAPIURL = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
     
     init() {
         fetchPokemon()
