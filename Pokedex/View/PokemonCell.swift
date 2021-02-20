@@ -9,11 +9,11 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct PokemonCell: View {
-    let pokemon: Pokemon
+    let pokemon: PokemonOld
     let vm: PokemonVM
     let backgroundColor: Color
     
-    init(pokemon: Pokemon, vm: PokemonVM) {
+    init(pokemon: PokemonOld, vm: PokemonVM) {
         self.pokemon = pokemon
         self.vm = vm
         self.backgroundColor = Color(vm.backgroundColor(forType: pokemon.type))
