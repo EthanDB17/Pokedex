@@ -6,17 +6,16 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
 
 struct PokemonCell: View {
     let pokemon: Pokemon
-    let vm: PokemonVM
+    let vm: PokemonCellVM
     let backgroundColor: Color
     
-    init(pokemon: Pokemon, vm: PokemonVM) {
+    init(pokemon: Pokemon) {
         self.pokemon = pokemon
-        self.vm = vm
-        self.backgroundColor = Color(vm.backgroundColor(forType: pokemon.type))
+        self.vm = PokemonCellVM(pokemon: pokemon)
+        self.backgroundColor = Color(vm.getCellBackgroundColor())
     }
     
     var body: some View {
@@ -29,18 +28,19 @@ struct PokemonCell: View {
                     .padding(.leading)
                 
                 HStack {
-                    Text(pokemon.type.capitalized)
+                    Text(vm.getPokemonType())
                         .font(.subheadline).bold()
                         .foregroundColor(.white)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color.white.opacity(0.25))
+                                .frame(width: 86, height: 48)
                         )
-                        .frame(width: 100, height: 24)
+                        .frame(width: 100, height: 55)
+                        .lineLimit(nil)
+                        .multilineTextAlignment(.center)
                     
-                    KFImage(URL(string: pokemon.imageUrl))
+                    Image(String(pokemon.id))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 68, height: 68)
