@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Pokemon: Decodable, Identifiable {
     let id: Int

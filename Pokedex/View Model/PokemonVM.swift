@@ -47,7 +47,9 @@ class PokemonVM: ObservableObject {
             }
             
             group.notify(queue: .main, execute: {
-                self?.pokemon = pokemonResponses
+                self?.pokemon = pokemonResponses.sorted { itemA, itemB in
+                    itemA.id < itemB.id
+                }
             })
         }
         
