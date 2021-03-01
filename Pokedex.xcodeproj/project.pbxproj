@@ -35,6 +35,7 @@
 		DD9DB40E25E5EEB3003440D6 /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB40D25E5EEB3003440D6 /* PokemonDetailView.swift */; };
 		DD9DB41325E5F43A003440D6 /* PokemonStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB41225E5F43A003440D6 /* PokemonStatsView.swift */; };
 		DD9DB41925E9EDC9003440D6 /* PokemonInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB41825E9EDC9003440D6 /* PokemonInformationView.swift */; };
+		DD9DB42125EC82EF003440D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB42025EC82EF003440D6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		DD9DB40D25E5EEB3003440D6 /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		DD9DB41225E5F43A003440D6 /* PokemonStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsView.swift; sourceTree = "<group>"; };
 		DD9DB41825E9EDC9003440D6 /* PokemonInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformationView.swift; sourceTree = "<group>"; };
+		DD9DB42025EC82EF003440D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9DB40225E0C496003440D6 /* PokemonHelper.swift */,
+				DD9DB42025EC82EF003440D6 /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				DD9DB41925E9EDC9003440D6 /* PokemonInformationView.swift in Sources */,
 				DD9DB3ED25E0BC2C003440D6 /* PokemonCellVM.swift in Sources */,
 				DD0F36A325D9E18300668660 /* PokemonListResult.swift in Sources */,
+				DD9DB42125EC82EF003440D6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

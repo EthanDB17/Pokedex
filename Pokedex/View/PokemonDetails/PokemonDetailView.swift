@@ -10,25 +10,24 @@ import SwiftUI
 struct PokemonDetailView: View {
     //let pokemon: Pokemon
     var body: some View {
-        ZStack (alignment: .leading) {
-            Color(UIColor.red)
-                .edgesIgnoringSafeArea(.all)
-            
-            ScrollView
-            {
-                VStack(){
-                    Image("6")
-                        .resizable()
-                        .frame(width: 300, height: 300, alignment: .center)
-                    
-                    PokemonInformationView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(.white))
-                        .cornerRadius(48.0)
-                }
-                .frame(maxWidth: .infinity, alignment: .top)
+        ScrollView
+        {
+            VStack(){
+                Image("6")
+                    .resizable()
+                    .frame(width: 300, height: 300, alignment: .center)
+                    .padding([.bottom], -40)
+                
+                PokemonInformationView()
+                    .frame(width: UIScreen.screenWidth + 30)
+                    .background(Color(.white))
+                    .cornerRadius(48.0)
             }
+            .frame(maxWidth: .infinity, alignment: .top)
+            .padding(.top, 30)
         }
+        .background(Color(.red))
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

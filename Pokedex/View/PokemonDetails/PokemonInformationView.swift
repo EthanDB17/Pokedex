@@ -15,6 +15,14 @@ struct PokemonInformationView: View {
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(.black)
+                .padding(.top, 15)
+            
+            Text("Fire / Flying")
+                .font(.subheadline).bold()
+                .foregroundColor(.white)
+                .padding(8)
+                .background(Color.red.opacity(0.75))
+                .cornerRadius(20)
             
             PokemonStatsView()
         }
