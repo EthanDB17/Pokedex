@@ -15,7 +15,7 @@ struct PokemonInformationView: View {
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(.black)
-                .padding(.top, 15)
+                .padding([.top, .bottom], 15)
             
             Text("Fire / Flying")
                 .font(.subheadline).bold()
@@ -23,6 +23,10 @@ struct PokemonInformationView: View {
                 .padding(8)
                 .background(Color.red.opacity(0.75))
                 .cornerRadius(20)
+            
+            Text("Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.")
+                .padding(.top, 8)
+                .padding([.leading, .trailing], 15)
             
             PokemonStatsView()
         }
