@@ -12,17 +12,21 @@ struct PokedexView: View {
     @ObservedObject var vm = PokemonVM()
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: gridItems, spacing: 16) {
-                    ForEach(vm.pokemon) { pokemon in
-                        NavigationLink(destination: PokemonDetailView()) {
-                            PokemonCell(pokemon: pokemon)
+        if (vm.loadingPokemon) {
+            ProgressView("Loading Pokemon...")
+        } else {
+            NavigationView {
+                ScrollView {
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ForEach(vm.pokemon) { pokemon in
+                            NavigationLink(destination: PokemonDetailView()) {
+                                PokemonCell(pokemon: pokemon)
+                            }
                         }
                     }
                 }
+                .navigationTitle("Pokemon")
             }
-            .navigationTitle("Pokemon")
         }
     }
 }

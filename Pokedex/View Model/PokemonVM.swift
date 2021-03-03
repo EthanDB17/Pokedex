@@ -8,15 +8,14 @@
 import SwiftUI
 
 class PokemonVM: ObservableObject {
-    @Published var pokemonOld = [PokemonOld]()
     @Published var pokemon = [Pokemon]()
+    @Published var loadingPokemon = false
+    
     let baseURL = "https://pokedex-bb36f.firebaseio.com/pokemon.json"
     let baseAPIURL = "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0"
     
     init() {
-        //fetchPokemonOld()
-        
-        
+        loadingPokemon = true
         fetchPokemon()
     }
     
@@ -50,6 +49,7 @@ class PokemonVM: ObservableObject {
                 self?.pokemon = pokemonResponses.sorted { itemA, itemB in
                     itemA.id < itemB.id
                 }
+                self?.loadingPokemon = false
             })
         }
         
@@ -79,30 +79,5 @@ class PokemonVM: ObservableObject {
         default:
             return .systemIndigo
         }
-    }
-
-    func fetchPokemonOld() {
-        guard let url = URL(string: baseURL) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let data = data?.parseData(removeString: "null,") else { return }
-            guard let pokemon = try? JSONDecoder().decode([PokemonOld].self, from: data) else { return }
-            
-            DispatchQueue.main.async {
-                self?.pokemonOld = pokemon
-            }
-        }
-        
-        task.resume()
-    }
-    
-}
-
-extension Data {
-    func parseData(removeString string: String) -> Data? {
-        let dataAsString = String(data: self, encoding: .utf8)
-        let parsedDataString = dataAsString?.replacingOccurrences(of: string, with: "")
-        guard let data = parsedDataString?.data(using: .utf8) else { return nil }
-        return data
     }
 }
