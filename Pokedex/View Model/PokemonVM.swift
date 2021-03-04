@@ -55,29 +55,4 @@ class PokemonVM: ObservableObject {
         
         initialListTask.resume()
     }
-    
-    func backgroundColor(forType type: String) -> UIColor {
-        switch type.lowercased() {
-        case "fire":
-            return .systemRed
-        case "poison", "grass", "bug":
-            return .systemGreen
-        case "water", "dragon":
-            return .systemBlue
-        case "electric":
-            return .systemYellow
-        case "psychic":
-            return .systemPurple
-        case "normal", "steel", "rock":
-            return .systemGray
-        case "ground", "fighting":
-            return .systemOrange
-        case "flying", "ice":
-            return .systemTeal
-        case "fairy":
-            return .systemPink
-        default:
-            return .systemIndigo
-        }
-    }
 }

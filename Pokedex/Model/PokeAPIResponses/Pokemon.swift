@@ -16,4 +16,5 @@ struct Pokemon: Decodable, Identifiable {
     let moves: [MoveElement]
     let stats: [StatElement]
     let types: [TypeElement]
+    let species: Species
 }

@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    //let pokemon: Pokemon
+    let vm: PokemonDetailVM
+    let pokemon: Pokemon
     let scrollViewHeight = UIScreen.screenHeight * (3/5)
+    
+    init(vm: PokemonDetailVM) {
+        self.vm = vm
+        self.pokemon = vm.pokemon
+    }
+    
     var body: some View {
         ZStack(alignment: .top) {
             Color.red
@@ -34,11 +41,5 @@ struct PokemonDetailView: View {
                 .edgesIgnoringSafeArea(.bottom)
             }
         }
-    }
-}
-
-struct PokemonDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonDetailView()
     }
 }
