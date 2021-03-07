@@ -8,32 +8,38 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    let vm: PokemonDetailVM
+    @ObservedObject var detailsVM: PokemonDetailVM
     let pokemon: Pokemon
     let scrollViewHeight = UIScreen.screenHeight * (3/5)
+    let background: UIColor
     
-    init(vm: PokemonDetailVM) {
-        self.vm = vm
-        self.pokemon = vm.pokemon
+    init(pokemon: Pokemon) {
+        self.pokemon = pokemon
+        detailsVM = PokemonDetailVM(pokemon: self.pokemon)
+        self.background = PokemonHelper.GetTypeColor(forPokemon: pokemon)
     }
     
     var body: some View {
         ZStack(alignment: .top) {
-            Color.red
-                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Color(background).edgesIgnoringSafeArea(.all)
+                    .frame(width: UIScreen.screenWidth, height: (UIScreen.screenHeight * 0.6), alignment: .top)
+                Color.white.edgesIgnoringSafeArea(.all)
+                    .frame(width: UIScreen.screenWidth, height: (UIScreen.screenHeight * 0.4), alignment: .bottom)
+            }
             
             ScrollView
             {
                 VStack(alignment: .center)
                 {
-                    Image("6")
+                    Image("\(pokemon.id)")
                         .resizable()
                         .frame(width: 300, height: 300, alignment: .top)
-                        .padding(.top, 20)
-                        .padding(.bottom, -60)
+                        .padding(.top, 15)
+                        .padding(.bottom, -35)
                         .zIndex(1)
                     
-                    PokemonInformationView()
+                    PokemonInformationView(vm: detailsVM)
                         .frame(width: UIScreen.screenWidth + 30, alignment: .center)
                         .background(Color(.white))
                         .cornerRadius(48.0)
@@ -41,5 +47,8 @@ struct PokemonDetailView: View {
                 .edgesIgnoringSafeArea(.bottom)
             }
         }
+        .onAppear(perform: {
+            detailsVM.fetchPokemonSpecies()
+        })
     }
 }

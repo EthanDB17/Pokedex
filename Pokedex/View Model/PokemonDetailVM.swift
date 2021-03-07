@@ -13,14 +13,15 @@ class PokemonDetailVM: ObservableObject {
 
     init(pokemon: Pokemon) {
         self.pokemon = pokemon
-        fetchPokemonSpecies()
     }
     
     func fetchPokemonSpecies() {
         guard let url = URL(string: pokemon.species.url) else { return }
+        print(url)
         
         let pokemonSpeciesTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             guard let data = data else { return }
+            print(data)
             guard let fetchedSpecies = try? JSONDecoder().decode(SpeciesElement.self, from: data) else { return }
             
             DispatchQueue.main.async {
@@ -29,5 +30,9 @@ class PokemonDetailVM: ObservableObject {
         }
         
         pokemonSpeciesTask.resume()
+    }
+    
+    func getPokemonType() -> String {
+        return pokemon.types.map { $0.type.name.capitalized }.joined(separator: " / ")
     }
 }

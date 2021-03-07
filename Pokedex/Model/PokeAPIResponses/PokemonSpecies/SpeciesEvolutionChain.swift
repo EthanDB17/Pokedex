@@ -8,9 +8,5 @@
 import Foundation
 
 struct SpeciesEvolutionChain: Decodable {
-    let evolutionChain: String
-    
-    enum CodingKeys: String, CodingKey {
-        case evolutionChain = "evolution_chain"
-    }
+    let url: String
 }
