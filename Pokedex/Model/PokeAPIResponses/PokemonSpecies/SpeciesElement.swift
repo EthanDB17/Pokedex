@@ -9,13 +9,13 @@ import Foundation
 
 struct SpeciesElement: Decodable {
     let evolutionChain: SpeciesEvolutionChain
-    //let flavorTextEntries: [SpeciesFlavorTextEntries]
+    let flavorTextEntries: [SpeciesFlavorTextEntries]
     let id: Int
     let name: String
     
     enum CodingKeys: String, CodingKey {
         case evolutionChain = "evolution_chain"
-        //case flavorTextEntries = "flavor_text_entries"
+        case flavorTextEntries = "flavor_text_entries"
         case id = "id"
         case name = "name"
     }

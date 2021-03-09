@@ -31,20 +31,17 @@ struct PokemonInformationView: View {
                     .background(Color(PokemonHelper.GetTypeColor(forPokemon: detailsVM.pokemon)).opacity(0.75))
                     .cornerRadius(20)
                 
-    //            if let species = detailsVM.pokemonSpecies {
-    //                Text(species.flavorTextEntries.first?.flavorText ?? "Desc")
-    //            }
-    //            else {
-    //                Text("Loading...")
-    //            }
-                
-                Text("Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.")
-                    .padding(.top, 8)
-                    .padding([.leading, .trailing], 15)
+                if let species = detailsVM.pokemonSpecies {
+                    if let description = species.flavorTextEntries.first(where: { $0.language.name == "en" }) {
+                        Text(description.flavorText.replacingOccurrences(of: "\n", with: " "))
+                            .padding([.leading, .trailing], 20)
+                    }
+                }
                 
                 PokemonStatsView()
             } else {
                 ProgressView("Loading \(detailsVM.pokemon.name.capitalized) Details...")
+                    .frame(width: UIScreen.screenWidth/2, height: UIScreen.screenHeight/4, alignment: .center)
             }
         }
         .background(Color(.white))

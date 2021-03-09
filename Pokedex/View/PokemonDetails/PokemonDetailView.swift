@@ -23,9 +23,9 @@ struct PokemonDetailView: View {
         ZStack(alignment: .top) {
             VStack {
                 Color(background).edgesIgnoringSafeArea(.all)
-                    .frame(width: UIScreen.screenWidth, height: (UIScreen.screenHeight * 0.6), alignment: .top)
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/2, alignment: .top)
                 Color.white.edgesIgnoringSafeArea(.all)
-                    .frame(width: UIScreen.screenWidth, height: (UIScreen.screenHeight * 0.4), alignment: .bottom)
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/2, alignment: .bottom)
             }
             
             ScrollView
