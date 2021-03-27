@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 struct PokemonStatsVM {
-    let pokemonStats: StatElement
+    let pokemonStats: [StatElement]
     
-    init(stats: StatElement) {
+    init(stats: [StatElement]) {
         self.pokemonStats = stats
     }
     

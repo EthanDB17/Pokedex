@@ -43,6 +43,7 @@
 		DD9DB41325E5F43A003440D6 /* PokemonStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB41225E5F43A003440D6 /* PokemonStatsView.swift */; };
 		DD9DB41925E9EDC9003440D6 /* PokemonInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB41825E9EDC9003440D6 /* PokemonInformationView.swift */; };
 		DD9DB42125EC82EF003440D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9DB42025EC82EF003440D6 /* Constants.swift */; };
+		DDCD8E23260ECDE4006CB12A /* PokemonEvolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD8E22260ECDE3006CB12A /* PokemonEvolutionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		DD9DB41225E5F43A003440D6 /* PokemonStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonStatsView.swift; sourceTree = "<group>"; };
 		DD9DB41825E9EDC9003440D6 /* PokemonInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInformationView.swift; sourceTree = "<group>"; };
 		DD9DB42025EC82EF003440D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DDCD8E22260ECDE3006CB12A /* PokemonEvolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEvolutionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 				DD9DB40D25E5EEB3003440D6 /* PokemonDetailView.swift */,
 				DD9DB41225E5F43A003440D6 /* PokemonStatsView.swift */,
 				DD9DB41825E9EDC9003440D6 /* PokemonInformationView.swift */,
+				DDCD8E22260ECDE3006CB12A /* PokemonEvolutionView.swift */,
 			);
 			path = PokemonDetails;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				DD9DB3AC25E0B365003440D6 /* MoveLearnMethod.swift in Sources */,
 				DD9DB41325E5F43A003440D6 /* PokemonStatsView.swift in Sources */,
 				DD9DB40325E0C496003440D6 /* PokemonHelper.swift in Sources */,
+				DDCD8E23260ECDE4006CB12A /* PokemonEvolutionView.swift in Sources */,
 				DD56189425F09E860063DF17 /* PokemonDetailVM.swift in Sources */,
 				DD0F364F25CF983400668660 /* PokedexApp.swift in Sources */,
 				DD56188A25F09CDB0063DF17 /* FlavorTextLanguage.swift in Sources */,

@@ -38,7 +38,7 @@ struct PokemonInformationView: View {
                     }
                 }
                 
-                PokemonStatsView()
+                PokemonStatsView(stats: detailsVM.pokemon.stats, height: detailsVM.pokemon.height, weight: detailsVM.pokemon.weight)
             } else {
                 ProgressView("Loading \(detailsVM.pokemon.name.capitalized) Details...")
                     .frame(width: UIScreen.screenWidth/2, height: UIScreen.screenHeight/4, alignment: .center)
